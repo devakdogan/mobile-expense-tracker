@@ -82,12 +82,14 @@ class _NewExpenseState extends State<NewExpense> {
           TextField(
             controller: _titleController,
             maxLength: 50,
+            style: Theme.of(context).textTheme.titleMedium,
             decoration: const InputDecoration(label: Text('Title')),
           ),
           Row(
             children: [
               Expanded(
                 child: TextField(
+                  style: Theme.of(context).textTheme.titleMedium,
                   controller: _amountController,
                   keyboardType: TextInputType.number,
                   decoration: const InputDecoration(
@@ -103,9 +105,12 @@ class _NewExpenseState extends State<NewExpense> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(_selectedDate == null
-                      ? 'No date selected'
-                      : formatter.format(_selectedDate!)),
+                  Text(
+                    _selectedDate == null
+                        ? 'No date selected'
+                        : formatter.format(_selectedDate!),
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
                   IconButton(
                     onPressed: _presentDatePicker,
                     icon: const Icon(Icons.calendar_month),
